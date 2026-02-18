@@ -5,8 +5,159 @@
 .main {
   min-height: calc(100vh - 2rem);
   display: flex;
-  place-items: center;
-  text-align: center;
-  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.loading-main {
+  align-items: center;
+}
+
+.loading-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.loading-wrap p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 3px solid color-mix(in oklab, var(--app-text) 20%, transparent);
+  border-top-color: var(--app-text);
+  animation: spin 0.85s linear infinite;
+}
+
+.journal-card {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.journal-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.journal-header p {
+  margin: 0.3rem 0 0;
+  opacity: 0.8;
+}
+
+.today-entry,
+.history {
+  background: color-mix(in oklab, var(--app-bg) 90%, var(--app-text) 10%);
+  border: 1px solid color-mix(in oklab, var(--app-text) 18%, transparent);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.today-entry h2,
+.history h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--app-text) 25%, transparent);
+  background: var(--app-bg);
+  color: var(--app-text);
+  padding: 0.8rem;
+  min-height: 130px;
+  resize: vertical;
+  font: inherit;
+}
+
+.actions-row {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: color-mix(in oklab, var(--app-text) 82%, white 18%);
+  color: var(--app-bg);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.status-text.error {
+  color: #d32f2f;
+}
+
+.history ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.history li {
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--app-text) 12%, transparent);
+  padding: 0.75rem;
+}
+
+.history h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.history p {
+  margin: 0.45rem 0 0;
+  white-space: pre-wrap;
+}
+
+.empty-state {
+  margin: 0;
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 700px) {
+  #root {
+    padding: 0.75rem;
+  }
+
+  .main {
+    min-height: calc(100vh - 1.5rem);
+  }
+
+  .journal-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .today-entry,
+  .history {
+    padding: 0.85rem;
+  }
 }
